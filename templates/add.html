@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div>
+    <div class="error">
+            {{ message_fail }}
+        </div>
+    <form class="login_register" action="/add" method="POST">
+        <div><input required="required" class="input_field" id="first" name="first" type="text" placeholder="First Name" required="required" minlength="2"></div>
+        <div><input required="required" class="input_field" name="last" type="text" placeholder="Last Name" required="required" minlength="2"></div>
+        <div><input class="input_field submit" id="submit" type="submit" value="Add Employee"></div>
+    </form>
+
+</div>
+{% endblock %}

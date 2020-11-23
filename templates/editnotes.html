@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="divs">
+    <div class="title">
+    Make your changes in the window below.
+    </div>
+    <div>
+        <form action="/editnotes" method="POST">
+            <div><textarea class="notes" name="notes" placeholder="Type here...">{{notes}}</textarea>
+                <select class="hide" name="first">
+                    <option value={{first}}>first</option>
+                </select>
+                <select class="hide" name="last">
+                    <option value={{last}}>last</option>
+                </select>
+                <select class="hide" name="id">
+                    <option value={{ident}}>id</option>
+                </select>
+                <select class="hide" name="img">
+                    <option value={{url}}>img url</option>
+                </select>
+                <select class="hide" name="note_id">
+                    <option value={{note_id}}>Snip ID</option>
+                </select>
+                <input class="submit input_field" type="submit" value="Submit changes">
+        </form>
+        <form action="/profile" method="POST">
+            <select class="hide" name="first">
+                    <option value={{first}}>first</option>
+                </select>
+                <select class="hide" name="last">
+                    <option value={{last}}>last</option>
+                </select>
+                <select class="hide" name="id">
+                    <option value={{ident}}>id</option>
+                </select>
+                <select class="hide" name="url_img">
+                    <option value={{url}}>img url</option>
+                </select>
+
+            <input class="submit input_field" type="submit" value="Back to profile">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="divs">
+    <div class="title">
+    Make your changes in the window below.
+    </div>
+    <div>
+        <form action="/editsnip" method="POST">
+            <div><textarea class="notes" name="notes" placeholder="Type here...">{{snip}}</textarea>
+
+            <select class="hide" name="first">
+                <option value={{first_n}}></option>
+            </select>
+            <select class="hide" name="last">
+                <option value={{last_n}}></option>
+            </select>
+            <select class="hide" name="id">
+                <option value={{ident}}></option>
+            </select>
+            <select class="hide" name="url_img">
+                <option value={{url}}></option>
+            </select>
+            <select class="hide" name="snip_id">
+                <option value={{snip_id}}>Snip ID</option>
+            </select>
+            <input class="submit input_field" type="submit" value="Submit changes">
+        </form>
+        <form action="/profile" method="POST">
+            <select class="hide" name="first">
+                <option value={{first_n}}></option>
+            </select>
+            <select class="hide" name="last">
+                <option value={{last_n}}></option>
+            </select>
+            <select class="hide" name="id">
+                <option value={{ident}}></option>
+            </select>
+            <select class="hide" name="url_img">
+                <option value={{url}}></option>
+            </select>
+            <input class="submit input_field" type="submit" value="Back to profile">
+        </form>
+    </div>
+{% endblock %}

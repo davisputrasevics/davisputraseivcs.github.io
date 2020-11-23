@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            FOLLOW-UP
+        </title>
+        <link href="/static/style.css" rel="stylesheet">
+    </head>
+
+    <body class="background">
+        <div class="error">
+            {{ message_fail }}
+        </div>
+
+        <div class="login_register">
+            <form action="/register" method="POST">
+                <div><input class="input_field" name="username" type="text" placeholder="Username" required="required" minlength="2"></div>
+                <div><input class="input_field" name="password" type="password" placeholder="Password" required="required" minlength="5"></div>
+                <div><input class="input_field" name="confirmation" type="password" placeholder="Password" required="required" minlength="5"></div>
+                <div><input class="input_field submit" type="submit" value="Register"></div>
+            </form>
+                <form action="/"><input class="input_field submit" name="back" type="submit" value="Back"></form>
+        </div>
+    </body>
+</html>

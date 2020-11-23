@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div style="margin: auto; width: 70%; color: #152238; margin-top:50px;">
+<h2>The challenge.</h2>
+
+<p>We as leaders have a tsunami of information coming our way from different sources. And even with great memory and note taking skills,
+it is often difficult to follow along and remember it all.
+And when/if we take notes of everything, it is easy to get lost in all thoes paragraphs of information.</p>
+
+<h2>The purpose.</h2>
+<p>The purpose of this application is to help team leaders in one area of that challenge - sorting and standartizing information from 1:1 conversations with their employees, and make the most
+important of accessable to the manager with few clicks of a button and without tedious searching.</p>
+
+<h2>How to use the application.</h2>
+<p>The system recognizes specific keywords and symbols from your notes and extracts the most important information to make it easily visable to you.
+The text between the starting keyword and the ending symbol will be extracted.
+As of now the system recognizes following keywords:
+<li>*idea</li>
+<li>*team</li>
+<li>*challenge</li>
+</p>
+<p>
+Each of these keywords has to begin with an asterisk (*) which is directly followed by the keyword, and each thought in the text also has to end with an asterisk without
+any simbols directly to the left or right of it.
+<p>
+<b>Example:</b>
+    <li>Notes: "A set of text from your notes is here. *team here you want to note something important the employee commented about the team in your 1:1 conversation. And here you end the thought *
+    Then there are some more notes here. And then again you want to note an idea emloyee came up with so you type *idea and note the idea here and end here * and you continue to take notes from
+    your conversation.</li>
+</p>
+
+<p>
+    <b>Extracted information:</b>
+    <li>-*team here you want to note something important the employee commented about the team in your 1:1 conversation. And here you end the thought *</li>
+    <li>-*idea and note the idea here and end here *</li>
+</p>
+
+<p>
+    To try it out, add an employee profile and add some notes for that employee.
+</p>
+
+</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+        <div>
+
+            <div class="divs" name="main div 1">
+                <div class="title">
+                    <form class="edit_delete" action="/editprofile" method="GET">
+                        <select class="hide" name="first">
+                            <option value={{first_n}}>first</option>
+                        </select>
+                        <select class="hide" name="last">
+                            <option value={{last_n}}>last</option>
+                        </select>
+                        <select class="hide" name="id">
+                            <option value={{ident}}>last</option>
+                        </select>
+                        <select class="hide" name="img">
+                            <option value={{url}}>img url</option>
+                        </select>
+
+                        <input class="submit_edit input_field_edit" type="submit" value="Edit Profile">
+                    </form>
+                    {{first_n}} {{last_n}}.
+                    ID: {{ ident }}
+                </div>
+
+
+
+                <div>
+                    <form action="/addnotes" method="POST">
+                    <textarea class="notes" name="notes" placeholder="Type here..."></textarea>
+                    <div>
+                        <select class="input_field submit hide" name="id"> <!-- field is hidden-->
+                            <option value={{ident}}>{{ first_n }} {{ last_n }}</option>
+                        </select>
+                        <input class="submit input_field" type="submit" value="Add notes">
+                    </div>
+                    </form>
+                </div>
+
+                <div class="message_success_add">
+                    {{ message_success }}
+                </div>
+
+                <div class="error_add">
+                    {{ message_fail }}
+                </div>
+
+            </div>
+
+
+
+<!--end of main div 1 -->
+
+
+
+            <div class="divs" name="main div 2">
+                    <div class="edit_delete" name = "show all or latest snips">
+                        <form class="edit_delete" action="/profile" method="POST">
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <select class="hide" name="show">
+                                <option value="latest"></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" type="submit" value="Show Latest">
+                        </form>
+
+                        <form class="edit_delete" action="/profile" method="POST">
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <select class="hide" name="show">
+                                <option value="all"></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" type="submit" value="Show All">
+                        </form>
+                </div>
+
+
+
+
+
+
+
+                <div name="snips div" style="color: #152238; word-wrap: break-word;">
+                    <h3><b>Latest snips.</b></h3>
+                    <hr>
+                    {% for i in snips %}
+                    <div>
+                        <form class="edit_delete" action="/editsnip" method="GET">
+                            <select class="hide" name="snip_id">
+                                <option value={{i[5]}}>Snip ID</option>
+                            </select>
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" type="submit" value="Edit">
+                        </form>
+                        <form class="edit_delete" action="/deletesnip" method="GET">
+                            <select class="hide" name="snip_id">
+                                <option value={{i[5]}}>Snip ID</option>
+                            </select>
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" style="background-color: #FF2400;" type="submit" value="Delete">
+                            <div  class="edit_delete" style="color: #152238;font-size: small;"><input type="checkbox" id="myCheck" name="test" required>Delete snip</div>
+                        </form>
+                    </div>
+                    <b>{{ i[2] }}</b> {{ i[3] }}
+                    {% endfor %}
+                </div>
+
+
+                <div name="note div" style="color: #152238;">
+                    <h3><b>Latest notes.</b></h3>
+                    <hr>
+                    {% for i in notes %}
+                    <div>
+                        <form class="edit_delete" action="/editnotes" method="GET">
+                            <select class="hide" name="note_id">
+                                <option value={{i[4]}}>Note ID</option>
+                            </select>
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" type="submit" value="Edit">
+                        </form>
+                        <form class="edit_delete" action="/deletenote" method="GET">
+                            <select class="hide" name="note_id">
+                                <option value={{i[4]}}>Snip ID</option>
+                            </select>
+                            <select class="hide" name="first">
+                                <option value={{first_n}}></option>
+                            </select>
+                            <select class="hide" name="last">
+                                <option value={{last_n}}></option>
+                            </select>
+                            <select class="hide" name="id">
+                                <option value={{ident}}></option>
+                            </select>
+                            <select class="hide" name="url_img">
+                                <option value={{url}}></option>
+                            </select>
+                            <input class="submit_edit input_field_edit" style="background-color: #FF2400;" type="submit" value="Delete">
+                            <div  class="edit_delete" style="color: #152238; font-size: small;"><input type="checkbox" id="myCheck" name="test" required>Delete note</div>
+                        </form>
+                    </div>
+                    <b>{{ i[1] }}</b>
+                    <p >{{ i[2] }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myCheck").required;
+    }
+    </script>
+
+{% endblock %}

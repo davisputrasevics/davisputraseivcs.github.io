@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div>
+    <form class="login_register" action"/remove" method="POST">
+        <div><input class="input_field" name="first" type="text" placeholder="First name" required="required"></div>
+        <div><input class="input_field" name="id" type="text" placeholder="ID" required="required">
+        <div class="title"><input type="checkbox" id="myCheck" name="test" required> I understand that all notes regarding this member will be permenantly deleted.</div>
+        <div><input class="input_field submit" type="submit" value="Delete member"></div>
+    </form>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myCheck").required;
+}
+</script>
+
+</div>
+
+<div class="message_success">
+    {{ message_success }}
+</div>
+
+<div class="error">
+    {{ message_fail }}
+</div>
+{% endblock %}

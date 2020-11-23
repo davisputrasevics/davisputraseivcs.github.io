@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+<div class="employees_container">
+{% for i in emps %}
+
+    <div class="employee">
+
+        <img class="profile_thumbnail" src={{i[4]}} alt="img">
+        <form action="/profile" method="POST">
+            <select class="hide" name="first">
+                <option value={{i[1]}}></option>
+            </select>
+            <select class="hide" name="last">
+                <option value={{i[2]}}></option>
+            </select>
+            <select class="hide" name="id">
+                <option value={{i[0]}}></option>
+            </select>
+            <select class="hide" name="url_img">
+                <option value={{i[4]}}></option>
+            </select>
+            <div><input style="width: 200px;" class="input_field submit" name="ident" type="submit" value={{i[1]}}></div>
+        </form>
+    </div>
+</div>
+
+{% endfor %}
+
+    <div>
+        <form action="/add">
+            <input class="new_employee" type="submit" value="+">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

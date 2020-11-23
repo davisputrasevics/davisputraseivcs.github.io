@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            FOLLOW-UP
+        </title>
+        <link href="/static/style.css" rel="stylesheet">
+    </head>
+
+    <body class="background">
+
+        <div class="error">
+            <!--{{ message_fail }}-->
+        </div>
+
+        <ul class="ul">
+          <li class="li"><a href="/"  class="lia">Team Members</a></li>
+          <!--<li class="li"><a href="/setings" class="lia">Setings</a></li>-->
+          <li class="li"><a href="/remove" class="lia">Remove member</a></li>
+          <li class="li"><a href="/howto" class="lia">How to use me</a></li>
+          <li class="li" style="float: right; color: #CD5C5C;"><a href="/logout" class="lia_logout">Logout</a></li>
+        </ul>
+    {% block main %}
+
+    {% endblock %}
+    </body>
+</html>
